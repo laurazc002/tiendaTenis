@@ -17,18 +17,19 @@ export function pintarProductos(productos){
         //2.3 creando la foto
         let fotoproducto=document.createElement('img')
         fotoproducto.classList.add('img-fluid','w-100','h-100')
-        fotoproducto.src=producto.foto
+        fotoproducto.src=producto.foto[0]
         //2.4 creando el nombre
         let nombreProducto=document.createElement('h3')
         nombreProducto.textContent=producto.nombre
         //2.5 Creando precio
         let precioProducto=document.createElement('h2')
         precioProducto.classList.add('fw-bold')
-        precioProducto.textContent= producto.precio
+        precioProducto.textContent= '$'+producto.precio+'COP'
         // popularidad
         let popularidad=document.createElement('h5')
         popularidad.textContent =producto.popularidad
-        
+        popularidad.classList.add('d-none')
+
         let descripcionProducto=document.createElement('h4')
         descripcionProducto.classList.add('d-none')
         descripcionProducto.textContent= producto.Descripcion
@@ -37,7 +38,7 @@ export function pintarProductos(productos){
         fotoproducto.src=producto.foto[1]  
         })
         columna.addEventListener('mouseleave',function(){
-            fotoproducto.src=producto.foto
+            fotoproducto.src=producto.foto[0]
         })
         //3. defino los parder e hijos (Jerarquias)
         tarjeta.appendChild(fotoproducto)

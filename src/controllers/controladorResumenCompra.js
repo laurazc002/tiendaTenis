@@ -1,4 +1,10 @@
 
+ let numero1=5000
+
+let numero2='$10000COP'
+
+console.log(numero1+Number(numero2.split("$")[1].split("COP")[0]))
+
 import{pintarResumenCompra} from './controladorPintarResumen.js'
 // accedemos a la variable local del carrito
 let carrito=JSON.parse(localStorage.getItem('carrito'))
@@ -18,7 +24,8 @@ else{
     carrito.subTotal=subTotal
      console.log(carrito.subTotal)
     carrito.forEach(function(producto){
-        producto.subTotal=Number(producto.precio)*Number(producto.cantidad)
+        producto.subTotal=Number(producto.precio.split('$')[1].split('COP')[0])*Number(producto.cantidad)
+        console.log(producto.precio)
         acumuladorValorTotal=acumuladorValorTotal+producto.subTotal
         pintarResumenCompra(producto.foto,producto.nombre,false,true,true,producto.precio,producto.cantidad,producto.subTotal)
 
@@ -38,9 +45,14 @@ else{
     let ValorTotal=document.createElement('h3')
     ValorTotal.classList.add('text-center','border-end')
     ValorTotal.textContent='$ '+ acumuladorValorTotal + ' COP'
+    let valorTotalDolar=document.createElement('h3')
+    valorTotalDolar.classList.add('text-center','border-end')
+    valorTotalDolar.textContent= '$' + acumuladorValorTotal*0.00023+ ' USD'
+
    //padres e Hijos
     columna.appendChild(titulo)
     columna.appendChild(ValorTotal)
+    columna.appendChild(valorTotalDolar)
     fila.appendChild(columna)        
     contenedorTotal.appendChild(fila)
 
@@ -70,6 +82,4 @@ botonLimpiar.addEventListener("click", function(){
 // voy al LocalStorage y bajo el valor de la clave contadorProducto que es el conteo de los productos en el carrito
 let contadorDeProductos=localStorage.getItem('contadorProducto')
 document.getElementById('numeroProducto').innerHTML = Number (contadorDeProductos)
-
-
 

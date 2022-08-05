@@ -1,3 +1,5 @@
+import {ponerEstrellas} from './controladorEstrellas.js'
+
 
 //console.log(JSON.parse(localStorage.getItem('infoProducto')))
 let producto = JSON.parse(localStorage.getItem('infoProducto'))
@@ -18,14 +20,14 @@ let foto = document.getElementById('foto')
 let nombre = document.getElementById('nombre')
 let precio = document.getElementById('precio')
 let descripcion = document.getElementById('descripcion')
-let popularidad = document.getElementById('star')
+
 foto.src = producto.foto
 nombre.textContent = producto.nombre
-precio.textContent = '$ ' + producto.precio
+precio.textContent =  producto.precio
 descripcion.textContent = producto.descripcion
-
+ponerEstrellas(producto.popularidad)
 // caso para sacar las estrellas de polularidad
-switch (producto.popularidad) {
+/*switch (producto.popularidad) {
    case '1':{
       let estrella1=document.createElement('i') 
       estrella1.classList.add('bi' ,'bi-star-fill')
@@ -101,7 +103,7 @@ switch (producto.popularidad) {
          break
       }   
       
-}
+}*/
 
 // capturar la cantidad del producto seleccionado
 // capturamos el value

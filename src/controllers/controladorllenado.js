@@ -39,12 +39,15 @@ export function pintarProductos(productos) {
     precioProducto.classList.add("fw-bold");
     precioProducto.textContent = "$" + producto.precio + "COP";
 
+
+
+    
     //2.6 Detectando eventos
     columna.addEventListener("mouseover", function () {
       fotoproducto.src = producto.foto[1];
     });
     columna.addEventListener("mouseleave", function () {
-      fotoproducto.src = producto.foto;
+      fotoproducto.src = producto.foto[0];
     });
     //3. defino los parder e hijos (Jerarquias)
     tarjeta.appendChild(fotoproducto);

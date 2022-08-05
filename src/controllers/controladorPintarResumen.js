@@ -37,7 +37,7 @@ export function pintarResumenCompra(fotoURL,nombreMensaje,banderaBoton,banderaPr
     let sumaPrecioProducto = document.createElement('h3')
     sumaPrecioProducto.textContent = 'Sub Total del Articulo es $ '+elSubTotal+' COP'
 
-    console.log(elSubTotal )
+    //console.log(elSubTotal )
 
     //padres e hijos
     columna1.appendChild(foto)
