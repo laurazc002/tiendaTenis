@@ -24,36 +24,38 @@ else {
         pintarResumenCompra(producto.foto, producto.nombre, false, true, true, producto.precio, producto.cantidad, producto.subTotal)
     })
     //Boton para cambiar de dolar a pesos (biseversa)
-    let interruptor = 0
+    let interruptor = 'dolar'
     //detecto el click del boton
     let cambioMoneda = document.getElementById('cambioMoneda')
     cambioMoneda.addEventListener('click', function (evento) {
      let contenedor = document.getElementById('contenedor')
     // un SI para Doble Funcion del click   
-     if (interruptor == 0) {
+     if (interruptor == 'dolar') {
 
         //Detecto los Valores que contienen la etiquetas
             let precioEnPesosSubTotal = contenedor.querySelectorAll('h2')
             // recorro los valores recolectados
             precioEnPesosSubTotal.forEach(function (etiqueta) {
-                //Aplico filtros para obtener los valor 
-                let filtroSubToltal = Math.round(Number(etiqueta.textContent.slice(28).split(' ')[0]) / 4000)
+                //Aplico filtros para obtener los valores 
+                let filtroSubToltal = etiqueta.textContent.slice(28).split(' ')[0] / 4000
+                filtroSubToltal=filtroSubToltal.toFixed(2)
                //pinto el nuevo contenido de la etiqueta 
                 etiqueta.textContent = 'Sub Total del Articulo es $ ' + filtroSubToltal + ' USD'
             })
 
             let precioEnPesos = contenedor.querySelectorAll('h4')
             precioEnPesos.forEach(function (etiqueta) {
-                let filtroEnPesos = Math.round(Number(etiqueta.textContent.slice(13).split('COP')[0]) / 4000)
+                let filtroEnPesos = etiqueta.textContent.slice(13).split('COP')[0]/ 4000 
+               filtroEnPesos=filtroEnPesos.toFixed(2)
                 etiqueta.textContent = 'Precio Und =$' + filtroEnPesos + 'USD'
                 
             })
             //detecto valor de etiqueta Total y aplico filtros necesarios
-            let totalDolar = Math.round(Number(contenedorTotal.querySelector('h3').textContent.split('$')[1].split('COP')[0]) / 4000)
-            
+            let totalDolar = contenedorTotal.querySelector('h3').textContent.split('$')[1].split('COP')[0] / 4000
+            totalDolar=totalDolar.toFixed(2)
             document.getElementById('totalEnDolar').innerHTML = '$' + totalDolar + 'USD'
            // inteeruptor para doble funcion del boton
-            interruptor = 1
+            interruptor = 'pesos'
         } else {
 
             let precioEnPesosSubTotal = contenedor.querySelectorAll('h2')
@@ -72,7 +74,7 @@ else {
             }) 
                 let totalDolar = contenedorTotal.querySelector('h3').textContent.split('$')[1].split('USD')[0]* 4000
                 document.getElementById('totalEnDolar').innerHTML = '$' + totalDolar+ 'COP'
-            interruptor = 0
+            interruptor = 'dolar'
         }
     })
     //Dibujando el Total 
@@ -106,6 +108,7 @@ else {
     pintarResumenCompra('../../assets/img/carrovacio.jpg', 'Carrito Vacio', true, false, null, false, null, false)
     document.getElementById('numeroProducto').innerHTML = 0
     document.getElementById('total').innerHTML = ''
+    document.getElementById('cambioMoneda').innerHTML=''
 })
 
 // voy al LocalStorage y bajo el valor de la clave contadorProducto que es el conteo de los productos en el carrito

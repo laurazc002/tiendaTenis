@@ -5,7 +5,7 @@
 export let productosBD = [
     {
       nombre: "Adidas Forum 84 Low ADV", //Forum84
-      precio: 499990,
+      precio: 500000,
       cantidad: 3,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/Forum84.png?alt=media&token=52c7ae41-64f1-4e00-80b5-4f7cd6855e15",
@@ -18,7 +18,7 @@ export let productosBD = [
   
     {
       nombre: "Adidas Ozelia", //Ozelia
-      precio: 459990,
+      precio: 460000,
       cantidad: 1,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/Ozelia.jpg?alt=media&token=f6e04f95-02c0-484c-9dd2-630d67895e91",
@@ -30,7 +30,7 @@ export let productosBD = [
       },
     {
       nombre: "Adidas PW Hu NMD", //AdPWHu
-      precio: 890990,
+      precio: 890000,
       cantidad: 2,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/AdPWHu.png?alt=media&token=37fb2369-d08f-4f13-9381-5860b1aac763",
@@ -54,7 +54,7 @@ export let productosBD = [
       },
     {
       nombre: "Air Jordan 6 Low CNY", //23low
-      precio: 666845,
+      precio: 650000,
       cantidad: 3,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/23low.jpg?alt=media&token=3672074a-3874-4659-ae4e-3bb6a08c2de5",
@@ -78,7 +78,7 @@ export let productosBD = [
       },
     {
       nombre: "Converse x Todd Snyder Chuck 70 HI", // Chuck70
-      precio: 47900,
+      precio: 479000,
       cantidad: 4,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/Chuck70.png?alt=media&token=4d1ed8b6-9011-456c-a76b-a5fe935b7a8c",
@@ -90,7 +90,7 @@ export let productosBD = [
       },
     {
       nombre: "Lacoste L001", //L001
-      precio: 31700,
+      precio: 317000,
       cantidad: 2,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/L001.jpg?alt=media&token=113a1bec-0ff5-4396-a87b-0e4796bb6536",
@@ -126,7 +126,7 @@ export let productosBD = [
       },
     {
       nombre: "New Balance 990v4", //New990
-      precio: 419000,
+      precio: 420000,
       cantidad: 2,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/New990.png?alt=media&token=ec3c63d0-7a62-4327-83f6-0a1323174d6d",
@@ -138,7 +138,7 @@ export let productosBD = [
       },
     {
       nombre: "New Balance Conversations Amongst Us", //NewUs
-      precio: 598000,
+      precio: 600000,
       cantidad: 2,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/NewUs.png?alt=media&token=abdad6ce-fbee-43f8-8be2-5dd6cf6f88ca",
@@ -162,7 +162,7 @@ export let productosBD = [
       },
     {
       nombre: "New Balance XC-72", //NewXC
-      precio: 557000,
+      precio: 588000,
       cantidad: 3,
       foto: [
         "https://firebasestorage.googleapis.com/v0/b/livtiendatcc.appspot.com/o/NewXC.jpg?alt=media&token=33f93429-aed7-42d5-a58b-04fce4506136",
