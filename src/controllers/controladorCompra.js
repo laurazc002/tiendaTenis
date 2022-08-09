@@ -2,16 +2,16 @@ import {ponerEstrellas} from './controladorEstrellas.js'
 
 
 //console.log(JSON.parse(localStorage.getItem('infoProducto')))
-let producto = JSON.parse(localStorage.getItem('infoProducto'))
+let producto = JSON.parse(sessionStorage.getItem('infoProducto'))
 console.log(producto)
 let carrito
 //REVISAR VERIFICAR SI HAY PRODUCTOS EN EL CARRITo
-if (JSON.parse(localStorage.getItem('carrito')) == null) {
+if (JSON.parse(sessionStorage.getItem('carrito')) == null) {
    // agregamos el carrito de compras
    carrito = []
 }
 else {
-   carrito = JSON.parse(localStorage.getItem('carrito'))
+   carrito = JSON.parse(sessionStorage.getItem('carrito'))
 }
 //console.log(JSON.parse(localStorage.getItem('carrito')))
 
@@ -25,6 +25,9 @@ foto.src = producto.foto
 nombre.textContent = producto.nombre
 precio.textContent =  producto.precio
 descripcion.textContent = producto.descripcion
+
+
+
 ponerEstrellas(producto.popularidad)
 // caso para sacar las estrellas de polularidad
 /*switch (producto.popularidad) {
@@ -128,7 +131,7 @@ botonAgregar.addEventListener('click', function (evento) {
 
 
    // almaceno el carrito e el localstorage
-   localStorage.setItem('carrito', JSON.stringify(carrito))
+   sessionStorage.setItem('carrito', JSON.stringify(carrito))
    //localStorage.setItem('contadorCarrito',JSON.stringify(contadorCarrito))
    //document.getElementById('sumaProductos').innerHTML = contadorProducto
 
@@ -138,14 +141,14 @@ botonAgregar.addEventListener('click', function (evento) {
 
       contadorProducto = (contadorProducto + Number(producto.cantidad))
 
-      localStorage.setItem('contadorProducto', contadorProducto);
+      sessionStorage.setItem('contadorProducto', contadorProducto);
 
-      let contadorDeProductos = localStorage.getItem('contadorProducto')
+      let contadorDeProductos = sessionStorage.getItem('contadorProducto')
       document.getElementById('numeroProducto').innerHTML = Number(contadorDeProductos)
 
       console.log(contadorDeProductos)
    })
 })
 
-let contadorDeProductos = localStorage.getItem('contadorProducto')
+let contadorDeProductos = sessionStorage.getItem('contadorProducto')
 document.getElementById('numeroProducto').innerHTML = Number(contadorDeProductos)

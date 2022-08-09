@@ -21,11 +21,11 @@ contenedor.addEventListener("click", function (evento) {
 
 
 //ALMACENAR EN EL LOCAL STORAGE EL PRODUCTO SELECCIONADO
-    localStorage.setItem('infoProducto',JSON.stringify(producto))
+    sessionStorage.setItem('infoProducto',JSON.stringify(producto))
 // abro nueva ventana
 window.location.href='./ampliarinfo.html'
 
 });
 
-let contadorDeProductos=localStorage.getItem('contadorProducto')
+let contadorDeProductos=sessionStorage.getItem('contadorProducto')
 document.getElementById('numeroProducto').innerHTML = Number (contadorDeProductos)

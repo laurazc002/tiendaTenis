@@ -25,16 +25,17 @@ export function pintarResumenCompra(fotoURL,nombreMensaje,banderaBoton,banderaPr
     boton.textContent='Ir a la Tienda'
     boton.setAttribute('href',"../views/productos.html")
     
-    let precio = document.createElement('h3')
+    let precio = document.createElement('h4')
+    precio.setAttribute
     precio.classList.add('border-end')
-    precio.textContent = 'Precio Und =  $ '+ precioProducto + ' COP'
+    precio.textContent = 'Precio Und =' +  precioProducto 
 
 
     let cantidad = document.createElement('h3')
     cantidad.textContent = 'Cantidad = '+ cantidadProducto + ' Par' 
    
    
-    let sumaPrecioProducto = document.createElement('h3')
+    let sumaPrecioProducto = document.createElement('h2')
     sumaPrecioProducto.textContent = 'Sub Total del Articulo es $ '+elSubTotal+' COP'
 
     //console.log(elSubTotal )
