@@ -57,6 +57,12 @@
         <div class="row justify-content-center">
           <div class="col-12 col-md-5 border-start">
             <img class="img-fluid w-100" src="#" alt="tenis" id="foto">
+            <div class="col-12 text-center">
+              <img src="#" class="border-star ml-5 mr-5 my-5" alt="fotouno" id="foto1" height="60px" width="80px">
+              
+              <img src="#" class="border-start ml-5 mr-5 my-5" alt="fotodos" id="foto2" height="60px" width="80px">
+            </div>
+          
           </div>
           <div class="col-12 col-md-6 border-start">
             <h3 id="nombre">D</h3>
@@ -85,7 +91,7 @@
 
             <div class="mb-3 mt-4">
               <label class="form-label">cantidad </label>
-              <input type="number"  placeholder="0" id="cantidad" pattern="[0-9]+">
+              <input type="number" min="1" onkeydown="return false" id="cantidad" value="1">
             </div>
             <button id="agregar" type="button" class="btn btn-primary">Añadir al Carrito</button>
 

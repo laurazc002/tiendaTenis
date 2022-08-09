@@ -1,5 +1,5 @@
-export function pintarResumenCompra(fotoURL,nombreMensaje,banderaBoton,banderaPrecio,banderaCantidad,precioProducto,cantidadProducto,elSubTotal){
 
+export function pintarResumenCompra(fotoURL,fotoURL2,nombreMensaje,banderaBoton,banderaPrecio,banderaCantidad,precioProducto,cantidadProducto,elSubTotal){
     let contenedor = document.getElementById('contenedor')
 
     let fila1=document.createElement
@@ -61,4 +61,12 @@ export function pintarResumenCompra(fotoURL,nombreMensaje,banderaBoton,banderaPr
     fila1.appendChild(columna1)
     fila1.appendChild(columna2)
     contenedor.appendChild(fila1)
+
+    columna1.addEventListener('mouseover',function(){
+        fotoproducto.src=fotoURL2 
+        })
+    columna1.addEventListener('mouseleave',function(){
+         fotoproducto.src=fotoURL
+        })
+
 }

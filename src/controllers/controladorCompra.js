@@ -1,5 +1,5 @@
 import {ponerEstrellas} from './controladorEstrellas.js'
-
+import {productosBD} from '../helpers/basedatos.js'
 
 //console.log(JSON.parse(localStorage.getItem('infoProducto')))
 let producto = JSON.parse(sessionStorage.getItem('infoProducto'))
@@ -16,97 +16,41 @@ else {
 //console.log(JSON.parse(localStorage.getItem('carrito')))
 
 //pintamos la foto desde el localstorage
-let foto = document.getElementById('foto')
+let fotoPrincipal = document.getElementById('foto')
 let nombre = document.getElementById('nombre')
 let precio = document.getElementById('precio')
 let descripcion = document.getElementById('descripcion')
+let foto1=document.getElementById('foto1')
+let foto2=document.getElementById('foto2')
+console.log(productosBD[0].nombre)
+console.log(producto.nombre)
 
-foto.src = producto.foto
+productosBD.forEach(function(productoNuevo){
+   console.log(productoNuevo.nombre)
+if(producto.nombre==productoNuevo.nombre){
+   producto.foto=productoNuevo.foto
+   console.log(producto.foto)
+}
+})
+
+
+fotoPrincipal.src = producto.foto[0]
 nombre.textContent = producto.nombre
 precio.textContent =  producto.precio
 descripcion.textContent = producto.descripcion
+foto1.src = producto.foto[0]
+foto2.src = producto.foto[1]
 
 
+foto1.addEventListener('mouseover',function(){
+   fotoPrincipal.src=producto.foto[0]  
+   })
+ foto2.addEventListener('mouseover',function(){
+      fotoPrincipal.src=producto.foto[1]  
+      })
+   
 
 ponerEstrellas(producto.popularidad)
-// caso para sacar las estrellas de polularidad
-/*switch (producto.popularidad) {
-   case '1':{
-      let estrella1=document.createElement('i') 
-      estrella1.classList.add('bi' ,'bi-star-fill')
-      
-      popularidad.appendChild(estrella1)
-      break;
-   }
-
-   case '2':
-      {
-         let estrella1=document.createElement('i') 
-         estrella1.classList.add('bi' ,'bi-star-fill')
-         let estrella2=document.createElement('i') 
-          estrella2.classList.add('bi' ,'bi-star-fill') 
-
-          popularidad.appendChild(estrella1)
-          popularidad.appendChild(estrella2) 
-         break;
-      }
-
-   case '3':{
-      let estrella1=document.createElement('i') 
-      estrella1.classList.add('bi' ,'bi-star-fill')
-      let estrella2=document.createElement('i') 
-      estrella2.classList.add('bi' ,'bi-star-fill')
-      let estrella3=document.createElement('i') 
-      estrella3.classList.add('bi' ,'bi-star-fill')
-      
-      popularidad.appendChild(estrella1)
-      popularidad.appendChild(estrella2)
-      popularidad.appendChild(estrella3)
-      break;
-   }   
-   
-   case '4':
-      {
-         let estrella1=document.createElement('i') 
-         estrella1.classList.add('bi' ,'bi-star-fill')
-         let estrella2=document.createElement('i') 
-         estrella2.classList.add('bi' ,'bi-star-fill')
-         let estrella3=document.createElement('i') 
-         estrella3.classList.add('bi' ,'bi-star-fill')
-         let estrella4=document.createElement('i') 
-         estrella4.classList.add('bi' ,'bi-star-fill')
-         
-         popularidad.appendChild(estrella1)
-         popularidad.appendChild(estrella2)
-         popularidad.appendChild(estrella3)
-         popularidad.appendChild(estrella4) 
-         
-         break
-      }
-      
-      case '5':
-         {
-         console.log(producto.popularidad)
-       let estrella1=document.createElement('i') 
-         estrella1.classList.add('bi' ,'bi-star-fill')
-       let estrella2=document.createElement('i') 
-      estrella2.classList.add('bi' ,'bi-star-fill')
-      let estrella3=document.createElement('i') 
-      estrella3.classList.add('bi' ,'bi-star-fill')
-      let estrella4=document.createElement('i') 
-      estrella4.classList.add('bi' ,'bi-star-fill')
-      let estrella5=document.createElement('i') 
-      estrella5.classList.add('bi' ,'bi-star-fill')
-
-      popularidad.appendChild(estrella1)
-      popularidad.appendChild(estrella2)
-      popularidad.appendChild(estrella3)
-      popularidad.appendChild(estrella4)
-      popularidad.appendChild(estrella5)
-         break
-      }   
-      
-}*/
 
 // capturar la cantidad del producto seleccionado
 // capturamos el value

@@ -24,3 +24,8 @@ a{
 a:hover{
  font-size: 1.2em;   
 }
+
+
+.estrella{
+    color: rgb(248, 225, 16);
+}

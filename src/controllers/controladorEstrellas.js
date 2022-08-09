@@ -5,7 +5,7 @@ export function ponerEstrellas(estrellas){
     switch (estrellas) {
         case '1':{
            let estrella1=document.createElement('i') 
-           estrella1.classList.add('bi' ,'bi-star-fill')
+           estrella1.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella2=document.createElement('i') 
            estrella2.classList.add('bi' ,'bi-star')
            let estrella3=document.createElement('i') 
@@ -25,9 +25,9 @@ export function ponerEstrellas(estrellas){
         case '2':
            {
               let estrella1=document.createElement('i') 
-              estrella1.classList.add('bi' ,'bi-star-fill')
+              estrella1.classList.add('bi' ,'bi-star-fill','estrella')
               let estrella2=document.createElement('i') 
-               estrella2.classList.add('bi' ,'bi-star-fill') 
+               estrella2.classList.add('bi' ,'bi-star-fill','estrella') 
                let estrella3=document.createElement('i') 
            estrella3.classList.add('bi' ,'bi-star')
            let estrella4=document.createElement('i') 
@@ -45,11 +45,11 @@ export function ponerEstrellas(estrellas){
      
         case '3':{
            let estrella1=document.createElement('i') 
-           estrella1.classList.add('bi' ,'bi-star-fill')
+           estrella1.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella2=document.createElement('i') 
-           estrella2.classList.add('bi' ,'bi-star-fill')
+           estrella2.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella3=document.createElement('i') 
-           estrella3.classList.add('bi' ,'bi-star-fill')
+           estrella3.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella4=document.createElement('i') 
            estrella4.classList.add('bi' ,'bi-star')
            let estrella5=document.createElement('i') 
@@ -66,13 +66,13 @@ export function ponerEstrellas(estrellas){
         case '4':
            {
               let estrella1=document.createElement('i') 
-              estrella1.classList.add('bi' ,'bi-star-fill')
+              estrella1.classList.add('bi' ,'bi-star-fill','estrella')
               let estrella2=document.createElement('i') 
-              estrella2.classList.add('bi' ,'bi-star-fill')
+              estrella2.classList.add('bi' ,'bi-star-fill','estrella')
               let estrella3=document.createElement('i') 
-              estrella3.classList.add('bi' ,'bi-star-fill')
+              estrella3.classList.add('bi' ,'bi-star-fill','estrella')
               let estrella4=document.createElement('i') 
-              estrella4.classList.add('bi' ,'bi-star-fill')
+              estrella4.classList.add('bi' ,'bi-star-fill','estrella')
               let estrella5=document.createElement('i') 
               estrella5.classList.add('bi' ,'bi-star')
               
@@ -87,15 +87,15 @@ export function ponerEstrellas(estrellas){
            case '5':
               {
             let estrella1=document.createElement('i') 
-              estrella1.classList.add('bi' ,'bi-star-fill')
+              estrella1.classList.add('bi' ,'bi-star-fill','estrella')
             let estrella2=document.createElement('i') 
-           estrella2.classList.add('bi' ,'bi-star-fill')
+           estrella2.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella3=document.createElement('i') 
-           estrella3.classList.add('bi' ,'bi-star-fill')
+           estrella3.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella4=document.createElement('i') 
-           estrella4.classList.add('bi' ,'bi-star-fill')
+           estrella4.classList.add('bi' ,'bi-star-fill','estrella')
            let estrella5=document.createElement('i') 
-           estrella5.classList.add('bi' ,'bi-star-fill')
+           estrella5.classList.add('bi' ,'bi-star-fill','estrella')
      
            popularidad.appendChild(estrella1)
            popularidad.appendChild(estrella2)
