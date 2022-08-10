@@ -1,34 +1,27 @@
 
-
-import {productosBD} from '../helpers/basedatos.js'
 import { pintarResumenCompra } from './controladorPintarResumen.js'
 // accedemos a la variable local del carrito
 let carrito = JSON.parse(sessionStorage.getItem('carrito'))
 
-productosBD.forEach(function(productoNuevo){
-    console.log(productoNuevo.nombre)
- if(carrito.nombre==productoNuevo.nombre){
-    producto.foto=productoNuevo.foto
-    console.log(producto.foto)
- }
- })
+
+ 
 // comparamos si el  carrito esta vacio
 if (carrito == null) {
-    pintarResumenCompra('../../assets/img/carrovacio.jpg', 'Carrito Vacio', true, false, null, false, null, false)
+    pintarResumenCompra('../../assets/img/carrovacio.jpg','../../assets/img/carrovacio.jpg', 'Carrito Vacio', true, false, false,null, false, null, false)
+    document.getElementById('cambioMoneda').innerHTML=''
 }
-
 else {
     let acumuladorValorTotal = 0
     //agrego al carrito el subtotal
     let subTotal
     carrito.subTotal = subTotal
-    
+    console.log(carrito)
     //recorro el carrito de compras
     carrito.forEach(function (producto) {
         producto.subTotal = Number(producto.precio.split('$')[1].split('COP')[0]) * Number(producto.cantidad)
         //suma de subtotales para obtener el total 
         acumuladorValorTotal = acumuladorValorTotal + producto.subTotal
-        pintarResumenCompra(producto.foto[0],producto.foto[1], producto.nombre, false, true, true, producto.precio, producto.cantidad, producto.subTotal)
+        pintarResumenCompra(producto.foto[0],producto.foto[1], producto.nombre, false,true ,true, true, producto.precio, producto.cantidad, producto.subTotal)
     })
     console.log(carrito[0].foto)
     //Boton para cambiar de dolar a pesos (biseversa)
@@ -113,10 +106,11 @@ else {
     sessionStorage.removeItem('contadorProducto')
     let contenedor = document.getElementById('contenedor')
     contenedor.innerHTML = ""
-    pintarResumenCompra('../../assets/img/carrovacio.jpg', 'Carrito Vacio', true, false, null, false, null, false)
+    document.getElementById('cambioMoneda').innerHTML=''
+    pintarResumenCompra('../../assets/img/carrovacio.jpg','../../assets/img/carrovacio.jpg','Carrito Vacio', true, false,false ,null, false, null, false)
     document.getElementById('numeroProducto').innerHTML = 0
     document.getElementById('total').innerHTML = ''
-    document.getElementById('cambioMoneda').innerHTML=''
+    
 })
 
 // voy al LocalStorage y bajo el valor de la clave contadorProducto que es el conteo de los productos en el carrito

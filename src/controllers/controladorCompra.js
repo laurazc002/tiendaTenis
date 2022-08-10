@@ -3,7 +3,7 @@ import {productosBD} from '../helpers/basedatos.js'
 
 //console.log(JSON.parse(localStorage.getItem('infoProducto')))
 let producto = JSON.parse(sessionStorage.getItem('infoProducto'))
-console.log(producto)
+
 let carrito
 //REVISAR VERIFICAR SI HAY PRODUCTOS EN EL CARRITo
 if (JSON.parse(sessionStorage.getItem('carrito')) == null) {
@@ -22,14 +22,13 @@ let precio = document.getElementById('precio')
 let descripcion = document.getElementById('descripcion')
 let foto1=document.getElementById('foto1')
 let foto2=document.getElementById('foto2')
-console.log(productosBD[0].nombre)
-console.log(producto.nombre)
+
 
 productosBD.forEach(function(productoNuevo){
-   console.log(productoNuevo.nombre)
+ 
 if(producto.nombre==productoNuevo.nombre){
    producto.foto=productoNuevo.foto
-   console.log(producto.foto)
+   
 }
 })
 
@@ -42,10 +41,10 @@ foto1.src = producto.foto[0]
 foto2.src = producto.foto[1]
 
 
-foto1.addEventListener('mouseover',function(){
+foto1.addEventListener('mouseover',function(evento){
    fotoPrincipal.src=producto.foto[0]  
    })
- foto2.addEventListener('mouseover',function(){
+ foto2.addEventListener('mouseover',function(evento){
       fotoPrincipal.src=producto.foto[1]  
       })
    
@@ -67,19 +66,19 @@ botonAgregar.addEventListener('click', function (evento) {
    }, 3000)
    let cantidad = document.getElementById('cantidad').value
    producto.cantidad = cantidad
-
    //let contadorProducto= 0
    //contadorProducto= producto.cantidad+contadorProducto
    //agregando un producto al carrito de compras
    carrito.push(producto)
-
-
+   
+   
    // almaceno el carrito e el localstorage
    sessionStorage.setItem('carrito', JSON.stringify(carrito))
+   console.log(carrito)
    //localStorage.setItem('contadorCarrito',JSON.stringify(contadorCarrito))
    //document.getElementById('sumaProductos').innerHTML = contadorProducto
 
-
+console.log(carrito[0])
    let contadorProducto = 0
    carrito.forEach(function (producto) {
 

@@ -1,10 +1,13 @@
 
-export function pintarResumenCompra(fotoURL,fotoURL2,nombreMensaje,banderaBoton,banderaPrecio,banderaCantidad,precioProducto,cantidadProducto,elSubTotal){
+export function pintarResumenCompra(fotoURL,fotoURL2,nombreMensaje,banderaBoton,banderaBotonRemueve,banderaPrecio,banderaCantidad,precioProducto,cantidadProducto,elSubTotal){
+  let contadorProducto=  sessionStorage.getItem('contadorProducto')
+  console.log(contadorProducto)
     let contenedor = document.getElementById('contenedor')
 
     let fila1=document.createElement
     ('div')
     fila1.classList.add('row','my-3')
+    fila1.setAttribute('id','filaProducto')
     
     let columna1=document.createElement('div')
         columna1.classList.add('col-12','col-md-6','border-end')
@@ -25,6 +28,13 @@ export function pintarResumenCompra(fotoURL,fotoURL2,nombreMensaje,banderaBoton,
     boton.textContent='Ir a la Tienda'
     boton.setAttribute('href',"../views/productos.html")
     
+    let botonRemueve=document.createElement('button')
+    botonRemueve.classList.add('btn','btn-black','my-5','text-center')
+    botonRemueve.textContent='Eliminar Producto'
+    botonRemueve.setAttribute('type','button')
+
+
+
     let precio = document.createElement('h4')
     precio.setAttribute
     precio.classList.add('border-end')
@@ -42,6 +52,9 @@ export function pintarResumenCompra(fotoURL,fotoURL2,nombreMensaje,banderaBoton,
 
     //padres e hijos
     columna1.appendChild(foto)
+    if(banderaBotonRemueve==true){
+    columna1.appendChild(botonRemueve)
+    }
     columna2.appendChild(nombre)
 
     if(banderaBoton == true){
@@ -56,17 +69,60 @@ export function pintarResumenCompra(fotoURL,fotoURL2,nombreMensaje,banderaBoton,
     if(elSubTotal !=false){
         columna2.appendChild(sumaPrecioProducto)
     }
-    
+   
 
     fila1.appendChild(columna1)
     fila1.appendChild(columna2)
     contenedor.appendChild(fila1)
 
-    columna1.addEventListener('mouseover',function(){
-        fotoproducto.src=fotoURL2 
+    foto.addEventListener('mouseover',function(evento){
+        foto.src=fotoURL2 
         })
-    columna1.addEventListener('mouseleave',function(){
-         fotoproducto.src=fotoURL
+    columna1.addEventListener('mouseleave',function(evento){
+         foto.src=fotoURL
         })
 
-}
+botonRemueve.addEventListener('click',function(evento){
+console.log('funciona')
+//resto la cantidad del carrito
+contadorProducto=contadorProducto-cantidadProducto
+//actualizo el contador del carrito
+sessionStorage.setItem('contadorProducto',contadorProducto)
+let contadorDeProductos = sessionStorage.getItem('contadorProducto')
+document.getElementById('numeroProducto').innerHTML = Number(contadorDeProductos)
+//descontar el subtotal de el total
+
+
+
+
+//bajar el carrito actializar sus productos y devolverlo
+let carritoParaActualizar=JSON.parse(sessionStorage.getItem('carrito'))
+console.log(carritoParaActualizar)
+let numeroVuelta=0
+
+
+WHILE (carritoNuevo.cantidad==cantidadProducto&&carritoNuevo.precio==precioProducto&&carritoNuevo.nombre==nombreMensaje)
+	{
+        
+        numeroVuelta=numeroVuelta+1
+    }
+console.log('vuelta ' + numeroVuelta)
+
+
+
+
+
+
+
+
+
+
+
+
+//remuevo la fila donde se dibujo el producto
+document.getElementById('filaProducto').remove()
+
+})
+
+
+}   
